@@ -36,11 +36,11 @@ def test_post_renderer(tmpdir):
 
     target_path = tmpdir.strpath + '/collective.todo'
     package_path = target_path + '/src/collective/todo'
-    browser_path = package_path + '/browser'
+    viewlet_path = package_path + '/viewlets'
 
     os.makedirs(target_path)
     os.makedirs(package_path)
-    os.makedirs(browser_path)
+    os.makedirs(viewlet_path)
 
     template = """<configure
     xmlns="http://namespaces.zope.org/zope"
@@ -50,7 +50,7 @@ def test_post_renderer(tmpdir):
 
 </configure>
 """
-    with open(browser_path + '/configure.zcml', 'w') as f:
+    with open(viewlet_path + '/configure.zcml', 'w') as f:
         f.write(template)
 
     template = """# -*- coding: utf-8 -*-
@@ -60,7 +60,7 @@ from plone.app.layout.viewlets import ViewletBase
 
 # -*- Extra viewlets go here -*-
 """
-    with open(browser_path + '/viewlets.py', 'w') as f:
+    with open(viewlet_path + '/viewlets.py', 'w') as f:
         f.write(template)
 
     template = """
