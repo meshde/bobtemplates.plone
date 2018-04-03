@@ -58,10 +58,10 @@ def _update_viewlets_configure_zcml(configurator):
 
         """
     insert_str = insert_str.format(
-        normalized_name=configurator.variables['view_name_normalized'],
+        normalized_name=configurator.variables['viewlet_name_normalized'],
         content_type='*',
         manager=configurator.variables['manager_name_klass'],
-        klass_name=configurator.variables['view_name_klass'],
+        klass_name=configurator.variables['viewlet_name_klass'],
         layer='zope.interface.Interface',
         permission='zope2.View',
     )

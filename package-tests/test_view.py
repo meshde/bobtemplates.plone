@@ -33,11 +33,11 @@ def test_post_renderer(tmpdir):
 
     target_path = tmpdir.strpath + '/collective.todo'
     package_path = target_path + '/src/collective/todo'
-    browser_path = package_path + '/browser'
+    views_path = package_path + '/views'
 
     os.makedirs(target_path)
     os.makedirs(package_path)
-    os.makedirs(browser_path)
+    os.makedirs(views_path)
 
     template = """<configure
     xmlns="http://namespaces.zope.org/zope"
@@ -47,7 +47,7 @@ def test_post_renderer(tmpdir):
 
 </configure>
 """
-    with open(browser_path + '/configure.zcml', 'w') as f:
+    with open(views_path + '/configure.zcml', 'w') as f:
         f.write(template)
 
     template = """# -*- coding: utf-8 -*-
@@ -57,7 +57,7 @@ from Products.Five.browser import BrowserView
 
 # -*- Extra views go here -*-
 """
-    with open(browser_path + '/views.py', 'w') as f:
+    with open(views_path + '/views.py', 'w') as f:
         f.write(template)
 
     template = """
